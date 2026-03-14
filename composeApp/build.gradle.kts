@@ -131,11 +131,14 @@ kotlin {
             implementation(libs.material.kolor)
             implementation(libs.compose.placeholder.material)
             implementation(libs.compose.placeholder)
-            implementation(libs.compose.webview.multiplatform)
 
             implementation(libs.reorderable)
 
             implementation(libs.uri.kmp)
+        }
+
+        mobileMain.dependencies {
+            implementation(libs.compose.webview.multiplatform)
         }
 
         androidMain {
@@ -178,6 +181,7 @@ kotlin {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
             implementation(libs.ktor.client.okhttp)
+            implementation(libs.compose.webview.multiplatform)
         }
 
         commonTest.dependencies {
