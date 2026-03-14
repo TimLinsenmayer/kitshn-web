@@ -7,6 +7,6 @@ data class FundingCost(
     val type: String,
     val source: String,
     val label: String,
-    val amount: Float,
+    val amount: Double,
     val currency: String
 )
