@@ -1,0 +1,10 @@
+FROM gradle:8.7-jdk17-alpine AS build
+WORKDIR /app
+COPY . .
+RUN ./gradlew :composeApp:jsBrowserDistribution --no-daemon
+
+FROM nginx:1.27-alpine
+COPY --from=build /app/composeApp/build/dist/js/productionExecutable /usr/share/nginx/html
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+
